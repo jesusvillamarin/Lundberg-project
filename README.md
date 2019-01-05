@@ -1,6 +1,11 @@
-## Welcome to GitHub Pages
+## Lundberg Project
+You can use the [editor on GitHub](https://github.com/jesusvillamarin/Lundberg-project/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-You can use the [editor on GitHub](https://github.com/jesusvillamarin/Lundberg-project/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+### Uso de las siguientes librerias 
+1. Angular Material
+2. Angular Flex Layout
+3. ngrx/store & ngrx/effects
+
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
