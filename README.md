@@ -7,7 +7,7 @@ You can use the [editor on GitHub](https://github.com/jesusvillamarin/Lundberg-p
 3. ngrx/store & ngrx/effects
 
 ### Install Angular Material 
-> npm install --save @angular/material @angular/cdk
-> npm install --save @angular/animations
+1. npm install --save @angular/material @angular/cdk
+2. npm install --save @angular/animations
 
 
