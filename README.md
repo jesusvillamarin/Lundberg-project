@@ -6,4 +6,8 @@ You can use the [editor on GitHub](https://github.com/jesusvillamarin/Lundberg-p
 2. Angular Flex Layout
 3. ngrx/store & ngrx/effects
 
+### Install Angular Material 
+> npm install --save @angular/material @angular/cdk
+> npm install --save @angular/animations
+
 
