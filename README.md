@@ -9,5 +9,6 @@ You can use the [editor on GitHub](https://github.com/jesusvillamarin/Lundberg-p
 ### Install Angular Material 
 1. npm install --save @angular/material @angular/cdk
 2. npm install --save @angular/animations
+3. npm install @angular/flex-layout
 
 
