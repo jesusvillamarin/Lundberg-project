@@ -1,5 +1,6 @@
 import { IUser } from './../../models/user';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'user-card',
@@ -10,13 +11,13 @@ export class UserCardComponent implements OnInit {
 
   @Input('user') user: IUser;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   log(){
-    console.log('hi');
+    this.router.navigate(['info:1'])
   }
 
 }
