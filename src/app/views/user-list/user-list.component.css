@@ -1,0 +1,9 @@
+.container{
+  max-width: 90%;
+  margin: auto;
+  padding: 30px;
+}
+
+.list-users{
+  margin: 5px 40px;
+}

@@ -1,3 +1,19 @@
 :host .mat-card{
-  height: 110px;;
+  height: 110px;
+}
+
+:host .mat-card-avatar{
+    height: auto;
+    width: 80px;
+    border-radius: 20%;
+    /* border: 1px solid black;
+    flex-shrink: 0;
+    object-fit: cover; */
+}
+
+.avatar{
+  background-image: url('../../../assets/imgs/Octocat.png');
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position-x: center;
 }

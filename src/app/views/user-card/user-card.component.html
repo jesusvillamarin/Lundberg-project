@@ -1,8 +1,9 @@
   <mat-card routerLink="info/2">
-    <mat-card-subtitle>
+    <mat-card-header>
+      <div mat-card-avatar class="avatar"></div>
       <mat-card-title> {{ user.name }} </mat-card-title>
       <mat-card-subtitle>{{ user.username }} </mat-card-subtitle>
-    </mat-card-subtitle>
+    </mat-card-header>
     <mat-card-content>
       <p>Website: {{ user.website }}</p>
     </mat-card-content>

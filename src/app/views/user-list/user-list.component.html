@@ -1,5 +1,5 @@
-<div fxLayout.gt-md="row wrap" fxLayout.lt-md="column" class="container" fxLayoutGap="15px" style="margin: 20px; max-width: 95%;">
-  <div fxFlex="20" fxFlex.lt-md="auto" class="users" *ngFor="let user of users">
-    <user-card [user]="user" style="margin: 10px"></user-card>
+<div class="container" fxLayout.gt-md="row wrap" fxLayout.lt-md="column" fxLayoutGap="15px" >
+  <div class="list-users" fxFlex="20" fxFlex.lt-md="auto"  *ngFor="let user of users">
+    <user-card [user]="user"></user-card>
   </div>
 </div>
