@@ -16,8 +16,5 @@ export class UserCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  log(){
-    this.router.navigate(['info:1'])
-  }
 
 }

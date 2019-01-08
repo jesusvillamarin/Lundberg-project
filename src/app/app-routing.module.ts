@@ -7,7 +7,6 @@ const routes: Routes = [
   {
     path: 'list', loadChildren:'./views/user.module#UserModule'
   },
-  { path: '**', component: AppComponent },
 ];
 
 @NgModule({

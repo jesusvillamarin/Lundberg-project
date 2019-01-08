@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { UserInfoComponent } from './user-info.component';
 
 const routes: Routes = [
-  { path: '', component: UserInfoComponent}
+  { path: ':id', component: UserInfoComponent, pathMatch: 'full'}
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [ UserInfoComponent ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
