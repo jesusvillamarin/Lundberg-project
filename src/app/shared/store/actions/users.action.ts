@@ -3,6 +3,7 @@ import { Action } from '@ngrx/store';
 import { IUser } from '../../../models/user';
 
 export enum UsersActionTypes {
+   LOAD_SPECIFIC_USER = "[User] Load specific user",
    LOAD_USERS = '[Users] Load Users',
    LOAD_USERS_ERROR = '[Users] Load Users Fail',
    LOAD_USERS_SUCCES = '[Users] Load Users Success'
@@ -23,5 +24,10 @@ export class LoadUsersSuccess implements Action {
   constructor(public payload: IUser[]){}
 }
 
+export class LoadSpecificUser implements Action {
+  readonly type = UsersActionTypes.LOAD_SPECIFIC_USER;
+  constructor(public payload: string){}
+}
 
-export type UsersActions = LoadUsers | LoadUsersError | LoadUsersSuccess;
+
+export type UsersActions = LoadUsers | LoadUsersError | LoadUsersSuccess | LoadSpecificUser;

@@ -2,12 +2,14 @@ import { IUser } from "./../../../models/user";
 import { UsersActionTypes, UsersActions } from "../actions/users.action";
 
 export interface UsersState {
-  data: IUser[];
+  users: IUser[];
   loading: boolean;
+  user: IUser
 }
 
 export const initialState: UsersState = {
-  data: [],
+  users: [],
+  user: {},
   loading: false
 };
 
@@ -27,8 +29,14 @@ export function UsersReducer(state: UsersState = initialState, action: UsersActi
       return {
         ...state,
         loading: false,
-        data: action.payload,
+        users: action.payload,
       };
+    case UsersActionTypes.LOAD_SPECIFIC_USER:
+      return {
+        ...state,
+        user: state.users.find(user => user.id === parseInt(action.payload))
+      }
+
   }
   return state;
 }
