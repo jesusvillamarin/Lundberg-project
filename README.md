@@ -14,6 +14,7 @@ You can use the [editor on GitHub](https://github.com/jesusvillamarin/Lundberg-p
 5. npm install @ngrx/effects
 6. npm install @ngrx/router-store
 7. npm install @ngrx/store-devtools 
+8. npm install ngrx-store-freeze
 
 ### Add @ngrx to app.module.ts
 ```
@@ -35,7 +36,9 @@ import { StoreDevtoolsModule} from '@ngrx/store-devtools';
     StoreModule,
     EffectsModule,
     StoreRouterConnectingModule,
-    StoreDevtoolsModule
+    StoreDevtoolsModule.instrument({
+      maxAge: 10,
+    })
   ],
 
 ```
