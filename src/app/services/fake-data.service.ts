@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class FakeDataService {
 
-  URL_API: string;
+  private URL_API: string;
 
   constructor(private http: HttpClient) {
     this.URL_API = 'https://jsonplaceholder.typicode.com';

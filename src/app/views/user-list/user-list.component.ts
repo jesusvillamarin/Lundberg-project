@@ -1,6 +1,11 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from "../../models/user";
-import { FakeDataService } from '../../services/fake-data.service';
+import { Store } from '@ngrx/store';
+
+import * as fromUsersStore from '../../shared/store/index';
+import * as fromUsersActions from '../../shared/store/actions/users.action'
+import * as fromUsersSelectors from '../../shared/store/selectors/users.selector';
 
 @Component({
   selector: 'app-user-list',
@@ -9,14 +14,13 @@ import { FakeDataService } from '../../services/fake-data.service';
 })
 export class UserListComponent implements OnInit {
 
-  users: IUser[];
+  users$: Observable<IUser[]>;
 
-  constructor(private serviceData: FakeDataService) { }
+  constructor(private store: Store<fromUsersStore.AppState>) { }
 
   ngOnInit() {
-    this.serviceData.getData().subscribe(res => {
-      this.users = res;
-    })
+    this.users$ = this.store.select(fromUsersSelectors.default.getUsers);
+    this.store.dispatch(new fromUsersActions.LoadUsers());
   }
 
 }
