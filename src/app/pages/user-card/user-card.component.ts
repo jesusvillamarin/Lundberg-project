@@ -1,4 +1,4 @@
-import { IUser } from './../../models/user';
+import { IUser } from '../../shared/models/user';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 

@@ -1,42 +1,43 @@
-import { IUser } from "./../../../models/user";
+import { IUser } from "../../models/user";
 import { UsersActionTypes, UsersActions } from "../actions/users.action";
 
 export interface UsersState {
   users: IUser[];
   loading: boolean;
-  user: IUser
+  user: IUser;
+  id: any;
 }
 
 export const initialState: UsersState = {
   users: [],
   user: {},
-  loading: false
+  loading: false,
+  id: null
 };
 
-export function UsersReducer(state: UsersState = initialState, action: UsersActions): UsersState {
+export function UsersReducer(state: UsersState = initialState,action: UsersActions): UsersState {
   switch (action.type) {
     case UsersActionTypes.LOAD_USERS:
       return {
         ...state,
-        loading: true,
+        loading: true
       };
     case UsersActionTypes.LOAD_USERS_ERROR:
       return {
         ...state,
-        loading: false,
+        loading: false
       };
-    case UsersActionTypes.LOAD_USERS_SUCCES:
+    case UsersActionTypes.LOAD_USERS_SUCCESS:
       return {
         ...state,
         loading: false,
-        users: action.payload,
+        users: action.payload
       };
-    case UsersActionTypes.LOAD_SPECIFIC_USER:
+    case UsersActionTypes.LOAD_ID_USER:
       return {
         ...state,
-        user: state.users.find(user => user.id === parseInt(action.payload))
-      }
-
+        id: action.payload
+      };
   }
   return state;
 }
