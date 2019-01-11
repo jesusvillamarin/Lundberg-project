@@ -1,5 +1,4 @@
 import { IPosts } from '../../shared/models/posts';
-import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { IUser } from './../../shared/models/user';
 import { Component, OnInit } from '@angular/core';
@@ -11,24 +10,30 @@ import fromUsersSelectors from '../../shared/store/selectors/users.selector';
 import fromPostsSelector from '../../shared/store/selectors/posts.selector';
 
 @Component({
-  selector: 'app-user-info',
-  templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.css']
+  selector: "app-user-info",
+  templateUrl: "./user-info.component.html",
+  styleUrls: ["./user-info.component.css"]
 })
 export class UserInfoComponent implements OnInit {
+  user: IUser;
+  dataSource: IPosts[];
+  id: any;
+  columns: string[] = ["id", "title", "post"];
 
-  user$: Observable<IUser>;
-  posts$: Observable<IPosts[]>
-  id:any;
-
-  constructor(private route: ActivatedRoute, private store: Store<fromUsersStore.AppState> ) {
-    this.id =  this.route.snapshot.params['id'];
-    this.user$ = this.store.select(fromUsersSelectors.getUserById);
-    this.posts$ = this.store.select(fromPostsSelector.getPosts);
-   }
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<fromUsersStore.AppState>
+  ) {
+    this.id = this.route.snapshot.params["id"];
+    this.store
+      .select(fromUsersSelectors.getUserById)
+      .subscribe(res => (this.user = res));
+    this.store
+      .select(fromPostsSelector.getPosts)
+      .subscribe(res => (this.dataSource = res));
+  }
 
   ngOnInit() {
     this.store.dispatch(new fromUsersActions.LoadIdUser(this.id));
   }
-
 }

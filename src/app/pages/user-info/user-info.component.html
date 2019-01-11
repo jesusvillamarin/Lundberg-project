@@ -1,6 +1,65 @@
-<div class="container" fxLayout="column" fxLayoutAlign="center center">
-  <pre> {{user$ | async | json }} </pre>
-  <div *ngFor="let post of posts$ | async">
-    <div>{{ post | json  }} </div>
+<div
+  class="container"
+  fxLayout.gt-md="row"
+  fxLayout="column"
+  fxLayoutGap="20px"
+>
+  <div
+    fxLayout="column"
+    fxLayout.lt-md="column"
+    fxLayoutAlign="start center"
+    fxFlex="40"
+    fxFlex.lt-md="100"
+    fxLayoutGap="5px"
+  >
+    <header class="user-head">
+      <div class="img-container"></div>
+      <h2 class="user-name" fxLayoutAlign="center center">{{ user?.name }}</h2>
+    </header>
+    <section class="user-body">
+      <p>
+        <mat-icon>alternate_email</mat-icon><strong> Email</strong>:
+        {{ user?.email }}
+      </p>
+      <p>
+        <mat-icon>phone</mat-icon><strong> Phone</strong>: {{ user?.phone }}
+      </p>
+      <p><mat-icon>web</mat-icon><strong> Web</strong>: {{ user?.website }}</p>
+      <p>
+        <mat-icon>store</mat-icon><strong> Company</strong>:
+        {{ user?.company.name }} <br />
+        <small> {{ user?.company.catchPhrase }}</small>
+      </p>
+    </section>
+  </div>
+
+  <div fxLayout="column" fxLayout.lt-md="column" fxFlex="60" fxFlex.lt-md="100">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>
+          <h2>ID</h2>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let post"> {{ post.id }} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef>
+          <h2>Title</h2>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let post"> {{ post.title }} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="post">
+        <mat-header-cell *matHeaderCellDef>
+          <h2>Post</h2>
+        </mat-header-cell>
+        <mat-cell class="post" *matCellDef="let post"> {{ post.body }} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columns" routerLink="posts/{{row.id}}"></mat-row>
+    </mat-table>
   </div>
 </div>

@@ -1,5 +1,5 @@
-<div class="container" fxLayout.gt-md="row wrap" fxLayout.lt-md="column" fxLayoutGap="15px" >
-  <div class="list-users" fxFlex="20" fxFlex.lt-md="auto"  *ngFor="let user of users$ | async ">
+<div class="container" fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
+  <div class="list-users" fxFlex.lt-sm="100%" fxFlex.lt-md="30%" fxFlex.gt-md="20%" *ngFor="let user of users$ | async ">
     <user-card [user]="user"></user-card>
   </div>
 </div>
