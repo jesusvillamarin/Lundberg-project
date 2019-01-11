@@ -1,3 +1,4 @@
+import { Comments } from './../shared/models/comments';
 import { IUser } from '../shared/models/user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -21,5 +22,9 @@ export class FakeDataService {
 
   getPosts(userId: any): Observable<IPosts[]>{
     return this.http.get<IPosts[]>(this.URL_API + `/posts?userId=${userId}`);
+  }
+
+  getComments(postId: any) : Observable<Comments[]>{
+    return this.http.get<Comments[]>(this.URL_API + `/comments?postId=${postId}`);
   }
 }
