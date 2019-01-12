@@ -4,7 +4,7 @@ import { IUser } from './../../shared/models/user';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import * as fromUsersStore from '../../shared/store/index';
+import * as fromStoreState from '../../shared/store/index';
 import * as fromUsersActions from '../../shared/store/actions/users.action';
 import fromUsersSelectors from '../../shared/store/selectors/users.selector';
 import fromPostsSelector from '../../shared/store/selectors/posts.selector';
@@ -21,16 +21,11 @@ export class UserInfoComponent implements OnInit {
   columns: string[] = ["id", "title", "post"];
 
   constructor(
-    private route: ActivatedRoute,
-    private store: Store<fromUsersStore.AppState>
-  ) {
+    private route: ActivatedRoute,private store: Store<fromStoreState.AppState>) {
+
     this.id = this.route.snapshot.params["id"];
-    this.store
-      .select(fromUsersSelectors.getUserById)
-      .subscribe(res => (this.user = res));
-    this.store
-      .select(fromPostsSelector.getPosts)
-      .subscribe(res => (this.dataSource = res));
+    this.store.select(fromUsersSelectors.getUserById).subscribe(res => (this.user = res));
+    this.store.select(fromPostsSelector.getPosts).subscribe(res => (this.dataSource = res));
   }
 
   ngOnInit() {

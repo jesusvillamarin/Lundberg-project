@@ -4,18 +4,16 @@ import { UsersActionTypes, UsersActions } from "../actions/users.action";
 export interface UsersState {
   users: IUser[];
   loading: boolean;
-  user: IUser;
   id: any;
 }
 
 export const initialState: UsersState = {
   users: [],
-  user: {},
   loading: false,
   id: null
 };
 
-export function UsersReducer(state: UsersState = initialState,action: UsersActions): UsersState {
+export function usersReducer(state: UsersState = initialState,action: UsersActions): UsersState {
   switch (action.type) {
     case UsersActionTypes.LOAD_USERS:
       return {

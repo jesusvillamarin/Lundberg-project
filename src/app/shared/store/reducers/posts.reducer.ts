@@ -2,27 +2,34 @@ import { IPosts } from "../../models/posts";
 import { PostsAction, PostsActionsType } from "../actions/posts.action";
 
 export interface PostsState {
-  posts?: IPosts[]
+  posts?: IPosts[];
   loading: boolean;
+  id: any;
 }
 
 export const initialState: PostsState = {
   posts : [],
-  loading: false
+  loading: false,
+  id: undefined
 };
 
-export function PostsReducer(state: PostsState = initialState, action: PostsAction): PostsState {
+export function postsReducer(state: PostsState = initialState, action: PostsAction): PostsState {
   switch (action.type) {
     case PostsActionsType.LOAD_POSTS:
-      return state;
+      return {
+        ...state,
+        loading: true,
+        id: action.payload
+      };
     case PostsActionsType.LOAD_POSTS_ERROR:
       return {
         ...state,
-        loading: false
+        loading: action.payload
       };
     case PostsActionsType.LOAD_POSTS_SUCCESS:
       return {
         ...state,
+        loading: false,
         posts: action.payload
       };
   }

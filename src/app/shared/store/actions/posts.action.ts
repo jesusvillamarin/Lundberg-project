@@ -9,6 +9,7 @@ export enum PostsActionsType {
 
 export class LoadPosts implements Action {
   readonly type = PostsActionsType.LOAD_POSTS;
+  constructor(public payload: any){};
 }
 
 export class LoadPostsError implements Action {

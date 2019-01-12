@@ -13,6 +13,10 @@ export class UsersEffects {
 
   constructor(private actions: Actions, private dataService: FakeDataService ){}
 
+  /**
+   * Este efecto escuchara la acción LoadUser para obtener todos los usuarios del API
+   */
+
   @Effect() load$ = this.actions.pipe(
     ofType(fromUsers.UsersActionTypes.LOAD_USERS),
     switchMap(()=>{
