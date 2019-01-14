@@ -1,3 +1,4 @@
+import { Action } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Observable, of, from } from 'rxjs';
 import { map, catchError , switchMap } from 'rxjs/operators';
@@ -22,7 +23,7 @@ export class PostEffects {
     donde el servicio filtrara todos los post de acuerdo al idUser
   */
 
-  @Effect() posts$ = this.action.pipe(
+  @Effect() posts$: Observable<Action> =  this.action.pipe(
     ofType(fromUser.UsersActionTypes.LOAD_ID_USER),
     map((action: fromUser.UsersActions) => action.payload),
     switchMap(id =>
@@ -32,4 +33,6 @@ export class PostEffects {
       )
     )
   );
+
+
 }

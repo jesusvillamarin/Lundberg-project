@@ -32,6 +32,12 @@ export function postsReducer(state: PostsState = initialState, action: PostsActi
         loading: false,
         posts: action.payload
       };
+    case PostsActionsType.LOAD_ID_POST:
+      return {
+        ...state,
+        loading:false,
+        id: action.payload
+      }
   }
   return state;
 }

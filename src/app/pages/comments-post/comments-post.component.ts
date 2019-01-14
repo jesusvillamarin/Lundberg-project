@@ -7,6 +7,7 @@ import { IPosts } from 'src/app/shared/models/posts';
 
 import * as fromStoreState from '../../shared/store/index';
 import * as fromCommentsAction from '../../shared/store/actions/comments.action';
+import * as fromPostActions from '../../shared/store/actions/posts.action';
 import  fromCommentsSelector from '../../shared/store/selectors/comments.selector';
 import fromPostsSelector from '../../shared/store/selectors/posts.selector';
 
@@ -24,11 +25,11 @@ export class CommentsPostComponent implements OnInit {
   constructor(private route: ActivatedRoute, private store: Store<fromStoreState.AppState>) {
     this.postId = this.route.snapshot.params['id'];
     this.store.select(fromCommentsSelector.getComments).subscribe(res => this.comments = res);
-    this.store.select(fromPostsSelector.getPostById).subscribe(res => console.log(res));
+    this.store.select(fromPostsSelector.getPostById).subscribe(res => this.post = res);
   }
 
   ngOnInit() {
-    this.store.dispatch(new fromCommentsAction.LoadComments(this.postId));
+    this.store.dispatch(new fromPostActions.LoadIdPost(this.postId));
   }
 
 }

@@ -18,7 +18,7 @@ export class UserInfoComponent implements OnInit {
   user: IUser;
   dataSource: IPosts[];
   id: any;
-  columns: string[] = ["id", "title", "post"];
+  columns: string[] = ["id", "title"];
 
   constructor(
     private route: ActivatedRoute,private store: Store<fromStoreState.AppState>) {

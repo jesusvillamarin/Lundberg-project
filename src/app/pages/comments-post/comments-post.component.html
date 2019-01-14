@@ -1,3 +1,22 @@
-<pre> {{comments | json }} </pre>
+<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div class="post" fxLayout="column">
+    <div class="title" fxLayoutAlign="center">
+      <h1 fxFlex="50">{{ post?.title }}</h1>
+    </div>
+    <div class="body" fxLayoutAlign="center">
+      <q fxFlex="70"> {{ post?.body }} </q>
+    </div>
+  </div>
 
-<div> {{post}} </div>
+  <div class="comments" fxLayout="row" fxLayoutAlign="center" fxFlexFill>
+    <mat-list dense fxFlex="70">
+      <h3 mat-header>Comments.</h3>
+      <mat-list-item *ngFor="let comment of comments">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h2 mat-line><strong>User:</strong> {{ comment?.email }}</h2>
+        <p mat-line><strong>Title:</strong> {{ comment?.name }}</p>
+        <b mat-line> {{ comment?.body }} </b>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

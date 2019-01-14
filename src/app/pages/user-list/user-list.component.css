@@ -2,3 +2,7 @@
 .list-users{
   margin: 10px 0;
 }
+
+user-card:hover{
+  cursor: pointer;
+}
