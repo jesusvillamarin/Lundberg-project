@@ -8,14 +8,14 @@
     </div>
   </div>
 
-  <div class="comments" fxLayout="row" fxLayoutAlign="center" fxFlexFill>
-    <mat-list dense fxFlex="70">
+  <div class="comments" fxLayout="row" fxLayoutAlign="center stretch" fxFlexFill>
+    <mat-list dense fxFlex="70%" fxFlex.lt-sm="90%">
       <h3 mat-header>Comments.</h3>
       <mat-list-item *ngFor="let comment of comments">
-        <mat-icon mat-list-icon>person</mat-icon>
+        <mat-icon mat-list-icon>comment</mat-icon>
         <h2 mat-line><strong>User:</strong> {{ comment?.email }}</h2>
         <p mat-line><strong>Title:</strong> {{ comment?.name }}</p>
-        <b mat-line> {{ comment?.body }} </b>
+        <b mat-line> <strong>Comment:</strong> {{ comment?.body }} </b>
       </mat-list-item>
     </mat-list>
   </div>

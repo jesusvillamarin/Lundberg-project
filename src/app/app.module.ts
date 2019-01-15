@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import {AngularFireModule } from '@angular/fire';
 
 //    Ngrx Modules
 import { StoreModule } from '@ngrx/store';
@@ -35,6 +36,7 @@ const CONF_STORE = [
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     MatToolbarModule,
     FlexLayoutModule,
     HttpClientModule,
