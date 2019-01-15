@@ -15,6 +15,8 @@ You can use the [editor on GitHub](https://github.com/jesusvillamarin/Lundberg-p
 6. npm install @ngrx/router-store
 7. npm install @ngrx/store-devtools 
 8. npm install ngrx-store-freeze
+9. npm install firebase @angular/fire --save
+10. npm install --global firebase-tools
 
 ### Add @ngrx to app.module.ts
 ```
