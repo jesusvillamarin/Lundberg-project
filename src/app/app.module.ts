@@ -30,19 +30,21 @@ const CONF_STORE = [
     }),
 ]
 
-@NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
+export const COMMON_IMPORTS = [
+   BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     MatToolbarModule,
     FlexLayoutModule,
     HttpClientModule,
     AppRoutingModule,
     ...CONF_STORE
+]
+
+@NgModule({
+  declarations: [
+    AppComponent,
   ],
+  imports: COMMON_IMPORTS,
   providers: [FakeDataService],
   bootstrap: [AppComponent]
 })
